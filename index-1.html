@@ -1,0 +1,228 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<title>DJ🎧Foryxxng</title>
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/css.css">
+<link rel="shortcut icon" href="images/favicon/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="images/favicon/indigo-touch-icon.png">
+<script src="js/jquery.min.js"></script>
+<script src="js/foryxxng.min.js"></script>
+<script>
+  var arrBoardList = [];
+
+  // 글을 글 목록(배열)에 저장하는 함수
+  function saveWriting() {
+	var writer = document
+	  .getElementsByClassName("name")[0]
+	  .querySelector("input").value;
+	var pw = document
+	  .getElementsByClassName("pw")[0]
+	  .querySelector("input").value;
+	var writing = document
+	  .getElementsByClassName("message")[0]
+	  .querySelector("textarea").value;
+
+	// 작성자와 글 내용이 정상적으로 적혀 있는지 확인
+	if (writer.length <= 0 || writing.length <= 0) {
+	  alert("등록할 글의 작성자와 내용을 입력해주세요!");
+	  return;
+	}
+
+	// 비밀번호는 4자로 입력했는지 확인
+	if (pw.length != 4) {
+	  alert("비밀번호는 4자로만 입력해주세요!");
+	  return;
+	}
+
+	arrBoardList.push({
+	  writer: writer,
+	  pw: pw,
+	  writing: writing,
+	});
+
+	console.log(arrBoardList);
+
+	displayBoardList();
+
+	// 기존 내용 초기화
+	document
+	  .getElementsByClassName("name")[0]
+	  .querySelector("input").value = "";
+	document.getElementsByClassName("pw")[0].querySelector("input").value =
+	  "";
+	document
+	  .getElementsByClassName("message")[0]
+	  .querySelector("textarea").value = "";
+  }
+
+  function displayBoardList() {
+	var contactTag = document.getElementById("contact");
+	var boxListTag = contactTag.getElementsByClassName("box_list");
+
+	boxListTag[0].innerHTML = "";
+
+	for (var i = 0; i < arrBoardList.length; i++) {
+	  const el = arrBoardList[i];
+
+	  boxListTag[0].innerHTML +=
+		'<p class="ellipsis">\
+			  <span>' +
+		el.writer +
+		"</span> : <span>" +
+		el.writing +
+		"</span>\
+			</p>";
+	}
+  }
+</script>
+</head>
+<body>
+    <div id="wrap">
+        <header class="header cfixed">
+            <h1 class="logo"><img src="images/logo-top.png"></h1>
+            <nav>
+                <ul class="gnb">
+                    <li><a href="#HOME">HOME</a></li>
+                    <li><a href="#TOP10">TOP10</a></li>
+                    <li><a href="#SUMMIT">SUMMIT</a></li>
+                    <li><a href="#NELL">NELL</a></li>
+                    <li><a href="#PEPPERTONES">PEPPERTONES</a></li>
+                    <li><a href="#THORNAPPLE">THORNAPPLE</a></li>
+                    <li><a href="#YOONHA">YOONHA</a></li>
+                    <li><a href="#contact">GUESTBOOK</a></li>
+                </ul>
+            </nav>
+            <span class="menu-toggle-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
+        </header>
+
+
+        <section class="display container">
+            <img src="images/main-logo.svg">
+            <img src="images/main-logo2.svg">
+            <span>장우영(@foryxxng)</span>
+            <p>SSU Gloal Media / 20211608</p>
+        </section>
+
+        <section class="contents container">
+
+            <section class="cnts cfixed" id="TOP10">
+                <h2 class="sec-tit" style="color:#51D5DD;">TOP10</h2>
+                <section class="gallery">
+                    <ul class="">
+                        <li style="border-color:#51D5DD; background-color:#51D5DD;"><img class="" src="images/s-images/younha1.jpg"><span class="album">윤하 싱글 1집 Audition</span></li>
+                        <li style="border-color:#51D5DD; background-color:#51D5DD;"><img class="" src="images/s-images/thorn4.jpg"><span class="album">윤하 싱글 1집 Audition</span></li>
+                        <li style="border-color:#51D5DD; background-color:#51D5DD;"><img class="" src="images/s-images/pepper6.jpg"><span class="album">윤하 싱글 1집 Audition</span></li>
+                        <li style="border-color:#51D5DD; background-color:#51D5DD;"><img class="" src="images/s-images/nell22.jpg"><span class="album">윤하 싱글 1집 Audition</span></li>
+                    </ul>
+                </section>
+            </section>
+            <section class="cnts cfixed" id="SUMMIT">
+                <h2 class="sec-tit" style="color:#7FCDEB;">SUMMIT</h2>
+                <section class="gallery2">
+                    <ul class="">
+                        <li>
+                            <iframe width="100%" style="border-color:#7FCDEB;" src="https://www.youtube.com/embed/wP1ecZFv9eM" title="YouTube video player"
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+                            gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <div class="summit">
+                              <p class="h4">행운을 빌어요 - 페퍼톤스<br><span class="exp">(band cover by NULL)</span></p>
+                              <span class="exp">숭실대학교 IT대학 밴드 소모임 ‘SUMMIT’의 팀 ‘NULL’에서 2021년 겨울 정기공연 당시공연한 곡이다.</span>
+                                <dl class="intro">
+                                  <dd>Vocal. 황태욱(전정공 18)</dd>
+                                  <dd>Guitar 1. 임가균(컴학 18)</dd>
+                                  <dd>Guitar 2. 김주성(전정공 19)</dd>
+                                  <dd>Bass. 김현우(전정공 19)</dd>
+                                  <dd>Piano. 장우영(글미 21)</dd>
+                                  <dd>Drum. 김하빈(글미 21)</dd>
+                              </dl>
+                            </div>
+                        </li>
+
+                    </ul>
+            	</section>
+            </section>
+            <section class="cnts cfixed" id="NELL">
+                <h2 class="sec-tit" style="color:#9AC9F3;">NELL</h2>
+                <section class="gallery">
+                    <ul class="">
+                        <li style="border-color:#9AC9F3; background-color:#9AC9F3;"><img class="" src="images/s-images/nell1.jpg"><span class="album">윤하 싱글 1집 Audition</span></li>
+                        <li style="border-color:#9AC9F3; background-color:#9AC9F3;"><img class="" src="images/s-images/nell2.jpg"><span class="album">윤하 싱글 1집 Audition</span></li>
+                        <li style="border-color:#9AC9F3; background-color:#9AC9F3;"><img class="" src="images/s-images/nell3.jpg"><span class="album">윤하 싱글 1집 Audition</span></li>
+                        <li style="border-color:#9AC9F3; background-color:#9AC9F3;"><img class="" src="images/s-images/nell4.jpg"><span class="album">윤하 싱글 1집 Audition</span></li>
+                    </ul>
+            	</section>
+            </section>
+            <section class="cnts cfixed" id="PEPPERTONES">
+               <h2 class="sec-tit" style="color:#BFC3FD;">PEPPERTONES</h2>
+               <section class="gallery">
+                    <ul class="">
+                        <li style="border-color:#BFC3FD; background-color:#BFC3FD;"><img class="" src="images/s-images/pepper1.jpg"><span class="album">윤하 싱글 1집 Audition</span></li>
+                        <li style="border-color:#BFC3FD; background-color:#BFC3FD;"><img class="" src="images/s-images/pepper2.jpg"><span class="album">윤하 싱글 1집 Audition</span></li>
+                        <li style="border-color:#BFC3FD; background-color:#BFC3FD;"><img class="" src="images/s-images/pepper3.jpg"><span class="album">윤하 싱글 1집 Audition</span></li>
+                        <li style="border-color:#BFC3FD; background-color:#BFC3FD;"><img class="" src="images/s-images/pepper4.jpg"><span class="album">윤하 싱글 1집 Audition</span></li>
+                    </ul>
+            	</section>
+            </section>
+            <section class="cnts cfixed" id="THORNAPPLE">
+                <h2 class="sec-tit" style="color:#CCC0F0;">THORNAPPLE</h2>
+                <section class="gallery">
+                    <ul class="">
+                      <li style="border-color:#CCC0F0; background-color:#CCC0F0;"><img class="" src="images/s-images/thorn1.jpg"><span class="album">윤하 싱글 1집 Audition</span></li>
+                      <li style="border-color:#CCC0F0; background-color:#CCC0F0;"><img class="" src="images/s-images/thorn2.jpg"><span class="album">윤하 싱글 1집 Audition</span></li>
+                      <li style="border-color:#CCC0F0; background-color:#CCC0F0;"><img class="" src="images/s-images/thorn3.jpg"><span class="album">윤하 싱글 1집 Audition</span></li>
+                      <li style="border-color:#CCC0F0; background-color:#CCC0F0;"><img class="" src="images/s-images/thorn4.jpg"><span class="album">윤하 싱글 1집 Audition</span></li>
+                    </ul>
+            	</section>
+            </section>
+            <section class="cnts cfixed" id="YOONHA">
+                <h2 class="sec-tit" style="color:#DDBFE2;">YOONHA</h2>
+                <section class="gallery">
+                    <ul class="">
+                        <li style="border-color:#DDBFE2; background-color:#DDBFE2;"><img class="" src="images/s-images/younha1.jpg"><span class="album">윤하 싱글 1집 Audition</span></li>
+                        <li style="border-color:#DDBFE2; background-color:#DDBFE2;"><img class="" src="images/s-images/younha2.jpg"><span class="album">윤하 싱글 1집 Audition</span></li>
+                        <li style="border-color:#DDBFE2; background-color:#DDBFE2;"><img class="" src="images/s-images/younha3.jpg"><span class="album">윤하 싱글 1집 Audition</span></li>
+                        <li style="border-color:#DDBFE2; background-color:#DDBFE2;"><img class="" src="images/s-images/younha4.jpg"><span class="album">윤하 싱글 1집 Audition</span></li>
+                    </ul>
+            	</section>
+            </section>
+            <section id="contact" class="guest-section">
+                <h2 class="sec-tit" style="color:#FBBBC7;">GUESTBOOK</h2>
+                    <div class="formbox">
+                        <div class="name">
+                          <label for="name" class="blind">name</label>
+                          <input type="text" id="name" placeholder="Name">
+                        </div>
+                        <div class="pw">
+                          <label for="pw" class="blind">password</label>
+                          <input type="password" id="pw" placeholder="password">
+                        </div>
+                        <div class="message">
+                          <label for="message" class="blind">message</label>
+                          <textarea name="message" id="message"placeholder="Message"></textarea>
+                        </div>
+                        <div class="send-btn">
+                            <div class="send-btn-b" style="margin: 30px auto" onclick="saveWriting()">
+                            SEND MASSAGE
+                            </div>
+                        </div>
+                    </div>
+
+                <div class="box_list"></div>
+        	</section>
+
+		</section>
+
+
+        <footer class="footer">
+            <p class="copyright">DJ🎧Foryxxng</p>
+        </footer>
+    </div>
+</body>
+</html>

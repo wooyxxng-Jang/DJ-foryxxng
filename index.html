@@ -1,0 +1,833 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<title>DJ🎧Foryxxng</title>
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/css.css">
+<link rel="shortcut icon" href="images/favicon/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="images/favicon/indigo-touch-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gamja+Flower&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<script src="js/jquery.min.js"></script>
+<script src="js/foryxxng.min.js"></script>
+
+<script>
+  var arrBoardList = [];
+
+  // 글을 글 목록(배열)에 저장하는 함수
+  function saveWriting() {
+	var writer = document
+	  .getElementsByClassName("name")[0]
+	  .querySelector("input").value;
+	var pw = document
+	  .getElementsByClassName("pw")[0]
+	  .querySelector("input").value;
+  var singer = document
+	  .getElementsByClassName("singer")[0]
+	  .querySelector("input").value;  
+	var writing = document
+	  .getElementsByClassName("message")[0]
+	  .querySelector("textarea").value;
+
+	// 작성자와 글 내용이 정상적으로 적혀 있는지 확인
+	if (writer.length <= 0 || writing.length <= 0) {
+	  alert("등록할 글의 작성자와 내용을 입력해주세요!");
+	  return;
+	}
+
+	// 비밀번호는 4자로 입력했는지 확인
+	if (pw.length != 4) {
+	  alert("비밀번호는 4자로만 입력해주세요!");
+	  return;
+	}
+
+	arrBoardList.push({
+	  writer: writer,
+	  pw: pw,
+    singer : singer,
+	  writing: writing,
+	});
+
+	console.log(arrBoardList);
+
+	displayBoardList();
+
+	// 기존 내용 초기화
+	document
+	  .getElementsByClassName("name")[0]
+	  .querySelector("input").value = "";
+	document.getElementsByClassName("pw")[0].querySelector("input").value =
+	  "";
+  document
+	  .getElementsByClassName("singer")[0]
+	  .querySelector("input").value = "";
+	document
+	  .getElementsByClassName("message")[0]
+	  .querySelector("textarea").value = "";
+  }
+
+  function displayBoardList() {
+	var contactTag = document.getElementById("contact");
+	var boxListTag = contactTag.getElementsByClassName("box_list");
+
+	boxListTag[0].innerHTML = "";
+
+	for (var i = 0; i < arrBoardList.length; i++) {
+	  const el = arrBoardList[i];
+
+	  boxListTag[0].innerHTML +=
+		'<p class="ellipsis">\
+			  <span>' +
+		el.writer +
+		"</span> 님의 추천곡 🎧 <span>" +
+    el.singer +
+    "</span> - <span>" +
+		el.writing +
+		"</span>\
+			</p>";
+	}
+  }
+</script>
+</head>
+<body>
+    <div id="wrap">
+        <header class="header cfixed">
+            <h1 class="logo">
+              <a href="index.html"><img src="images/logo-top.png"></a>
+            </h1>
+            <nav>
+                <ul class="gnb">
+                    <li><a href="#HOME">🏠 HOME</a></li>
+                    <li><a href="#TOP10">🎧 TOP_10</a></li>
+                    <li><a href="#SUMMIT">🎧 SUMMIT</a></li>
+                    <li><a href="#NELL">🎧 NELL</a></li>
+                    <li><a href="#PEPPERTONES">🎧 PEPPERTONES</a></li>
+                    <li><a href="#THORNAPPLE">🎧 THORNAPPLE</a></li>
+                    <li><a href="#YOUNHA">🎧 YOUNHA</a></li>
+                    <li><a href="#contact">🙌 GUEST ZONE</a></li>
+                </ul>
+            </nav>
+            <span class="menu-toggle-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
+        </header>
+
+        <section class="display container">
+          <img src="images/main-logo.svg">
+          <img src="images/main-logo2.svg">
+          <span>
+            <a href="https://www.instagram.com/foryxxng/"
+            style="color:#51D5DD; text-decoration: none"
+            target="_blank">장우영 (@foryxxng)</a>
+          </span>
+          <p>SSU Global Media / 20211608</p><br>
+          <p style="font-size: 0.9em; font-style: italic;">
+            좋아하는 가수와 그들의 음악을 소개합니다. </p>
+      </section>
+
+        <section class="contents container">
+
+            <section class="cnts cfixed" id="TOP10">
+              <!-- 이미지 자동 슬라이드 (1번에 1개씩 넘어가도록)  -->
+                <h2 class="sec-tit" style="color:#51D5DD;">#TOP_10</h2>
+                <div class="comment" style="font-family: 'Gowun Dodum', sans-serif;">
+                  🎀 제가 가장 좋아하는 10개의 앨범입니다! 앨범 커버 이미지를 누르시면 각 앨범에서 제가 가장 좋아하는 수록곡을 들을 수 있는 YouTube 링크로 연결됩니다.
+                </div>
+                <section class="gallery">
+                    <ul class="">
+                      <li style="border-color:#51D5DD; background-color:#51D5DD;">
+                        <a href="https://youtu.be/6Z5a6cJU95M" title="Fake Traveler" target="_blank">
+                          <img class="" src="images/s-images/pepper2.jpg">
+                          <span class="album">COLORFUL EXPRESS (PEPPERTONES)</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#51D5DD; background-color:#51D5DD;">
+                        <a href="https://youtu.be/ban-n5B7S5U" title="긴 여행의 끝" target="_blank">
+                          <img class="" src="images/s-images/pepper11.jpg">
+                          <span class="album">long way (PEPPERTONES)</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#51D5DD; background-color:#51D5DD;">
+                        <a href="https://youtu.be/YF1svlPVHdY" title="NEW HIPPIE GENERATION" target="_blank">
+                          <img class="" src="images/s-images/pepper3.jpg">
+                          <span class="album">NEW STANDARD (PEPPERTONES)</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#51D5DD; background-color:#51D5DD;">
+                        <a href="https://youtu.be/JMALr8rl8YA" title="오후와의 대화" target="_blank">
+                          <img class="" src="images/s-images/nell5.jpg">
+                          <span class="album">Healing Process (NELL)</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#51D5DD; background-color:#51D5DD;">
+                        <a href="https://youtu.be/zns6FHcyViI" title="1:03" target="_blank">
+                          <img class="" src="images/s-images/nell6.jpg">
+                          <span class="album">Separation Anxiety (NELL)</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#51D5DD; background-color:#51D5DD;">
+                        <a href="https://youtu.be/zmCwK4aC4U0" title="로마네스크" target="_blank">
+                          <img class="" src="images/s-images/thorn3.jpg">
+                          <span class="album">계몽 (THORNAPPLE)</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#51D5DD; background-color:#51D5DD;">
+                        <a href="https://youtu.be/BBdC1rl5sKY" title="사건의 지평선" target="_blank">
+                          <img class="" src="images/s-images/younha16.jpg">
+                          <span class="album">END THEORY : Final Edition (YOUNHA)</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#51D5DD; background-color:#51D5DD;">
+                        <a href="https://youtu.be/J8MYPzKhgoc" title="소나기" target="_blank">
+                          <img class="" src="images/s-images/younha8.jpg">
+                          <span class="album">Supersonic (YOUNHA)</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#51D5DD; background-color:#51D5DD;">
+                        <a href="https://youtu.be/aBNsNkUNuG8" title="습관적 아이러니" target="_blank">
+                          <img class="" src="images/s-images/nell11.jpg">
+                          <span class="album">C (NELL)</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#51D5DD; background-color:#51D5DD;">
+                        <a href="https://youtu.be/vx8zBqLr4Kw" title="스물두 번째 길" target="_blank">
+                          <img class="" src="images/s-images/younha6.jpg">
+                          <span class="album">Growing Season (YOUNHA)</span>
+                        </a>
+                      </li>
+                    </ul>
+                </section>
+            </section>
+            <section class="cnts cfixed" id="SUMMIT">
+                <h2 class="sec-tit" style="color:#7FCDEB;">#SUMMIT</h2>
+                <div class="comment">
+                  🎵 저는 숭실대학교 IT대학 밴드 소모임 ‘SUMMIT’에서 활동 중입니다.
+                  제가 공연하는 모습을 보실 수 있습니다! 
+                </div>
+                <section class="gallery2">
+                    <ul class="">
+                      <li>
+                        <iframe width="100%" style="border-color:#7FCDEB;"
+                        src="https://www.youtube.com/embed/T8Z7Pfa9ftI" title="YouTube video player" frameborder="0" allow="accelerometer;
+                        autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                        <div class="summit">
+                          <p class="h4">그것이 우리다<br><span class="exp"> 2022 숭실대학교 봄 축제 :: SSU:torial ::</span></p>
+                          <span class="exp">2022.05.16. 봄 축제라는 큰 무대에 설 수 있어서 매우 행복했습니다.<br><br>
+                            - SET LIST<br>
+                            1. 여행 - 볼빨간 사춘기<br>
+                            2. Time Lapse - 태연<br>
+                            3. 한 페이지가 될 수 있게 - DAY6
+                          </span>
+                            <dl class="intro">
+                              <dd>Vocal. 박시윤 (글로벌미디어학부 21)</dd>
+                              <dd>Guitar 1. 김경수 (글로벌미디어학부 22)</dd>
+                              <dd>Guitar 2. 김성윤 (AI융합학부 21)</dd>
+                              <dd>Bass. 장우영 (글로벌미디어학부 21)</dd>
+                              <dd>Piano. 윤지영 (컴퓨터학부 21)</dd>
+                              <dd>Drum. 김하빈 (글로벌미디어학부 21)</dd>
+                          </dl>
+                        </div>
+                      </li>
+                      <li>
+                        <iframe width="100%" style="border-color:#7FCDEB;"
+                        src="https://www.youtube.com/embed/wP1ecZFv9eM" title="YouTube video player" frameborder="0" allow="accelerometer;
+                        autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                        <div class="summit">
+                          <p class="h4">내 꿈은 파티시엘(꿈빛파티시엘 op.) - 아이유<br><span class="exp">(band cover by NULL)</span></p>
+                          <span class="exp">2021년 겨울 SUMMIT 정기공연 당시 공연한 곡입니다.
+                            기존 상큼한 동요에서 락 버전으로 편곡하여 짧고 강렬하게 첫 순서를 장식했습니다.</span>
+                            <dl class="intro">
+                              <dd>Vocal. 황태욱 (전자정보공학부 18)</dd>
+                              <dd>Guitar 1. 임가균 (컴퓨터학부 18)</dd>
+                              <dd>Guitar 2. 김주성 (전자정보공학부 19)</dd>
+                              <dd>Bass. 김현우 (전자정보공학부 19)</dd>
+                              <dd>Piano. 장우영 (글로벌미디어학부 21)</dd>
+                              <dd>Drum. 김하빈 (글로벌미디어학부 21)</dd>
+                          </dl>
+                        </div>
+                      </li>
+                      <li>
+                        <iframe width="100%" style="border-color:#7FCDEB;"
+                        src="https://www.youtube.com/embed/juRyBHi-A-Q" title="YouTube video player" frameborder="0" allow="accelerometer;
+                        autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                        <div class="summit">
+                          <p class="h4">넌 내게 반했어 - 노브레인<br><span class="exp">(band cover by NULL)</span></p>
+                          <span class="exp">2021년 겨울 SUMMIT 정기공연 당시 공연한 곡입니다.
+                            꿈빛파티시엘 오프닝 곡으로 화끈하게 달아오른 분위기를 이어가기 위해 두 번째 순서로 준비했습니다.</span>
+                            <dl class="intro">
+                              <dd>Vocal. 황태욱 (전자정보공학부 18)</dd>
+                              <dd>Guitar 1. 임가균 (컴퓨터학부 18)</dd>
+                              <dd>Guitar 2. 김주성 (전자정보공학부 19)</dd>
+                              <dd>Bass. 김현우 (전자정보공학부 19)</dd>
+                              <dd>Piano & Chorus. 장우영 (글로벌미디어학부 21)</dd>
+                              <dd>Drum. 김하빈 (글로벌미디어학부 21)</dd>
+                          </dl>
+                        </div>
+                      </li>
+                      <li>
+                        <iframe width="100%" style="border-color:#7FCDEB;"
+                        src="https://www.youtube.com/embed/lYe2AMnuyLA" title="YouTube video player" frameborder="0" allow="accelerometer;
+                        autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                        <div class="summit">
+                          <p class="h4">에라 모르겠다 - BIGBANG<br><span class="exp">(band cover by NULL)</span></p>
+                          <span class="exp">2021년 겨울 SUMMIT 정기공연 당시 공연한 곡입니다.
+                            공연장 분위기에 걸맞게 매력적인 기타 사운드가 돋보이도록 편곡하였습니다.</span>
+                            <dl class="intro">
+                              <dd>Vocal. 황태욱 (전자정보공학부 18)</dd>
+                              <dd>Guitar 1. 임가균 (컴퓨터학부 18)</dd>
+                              <dd>Guitar 2. 김주성 (전자정보공학부 19)</dd>
+                              <dd>Bass. 김현우 (전자정보공학부 19)</dd>
+                              <dd>Piano. 장우영 (글로벌미디어학부 21)</dd>
+                              <dd>Drum. 김하빈 (글로벌미디어학부 21)</dd>
+                          </dl>
+                        </div>
+                      </li>
+                      <li>
+                        <iframe width="100%" style="border-color:#7FCDEB;"
+                        src="https://www.youtube.com/embed/Vq6dK_YkeCE" title="YouTube video player" frameborder="0" allow="accelerometer;
+                        autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                        <div class="summit">
+                          <p class="h4">LoveSick Girls - BLACKPINK<br><span class="exp">(band cover by NULL)</span></p>
+                          <span class="exp">2021년 겨울 SUMMIT 정기공연 당시 공연한 곡입니다.
+                            기존 여자 아이돌 곡을 남보컬에 밴드 사운드로 편곡하여 공연을 절정으로 치닫게 합니다.</span>
+                            <dl class="intro">
+                              <dd>Vocal. 황태욱 (전자정보공학부 18)</dd>
+                              <dd>Guitar 1. 임가균 (컴퓨터학부 18)</dd>
+                              <dd>Guitar 2. 김주성 (전자정보공학부 19)</dd>
+                              <dd>Bass. 김현우 (전자정보공학부 19)</dd>
+                              <dd>Piano & Chorus. 장우영 (글로벌미디어학부 21)</dd>
+                              <dd>Drum. 김하빈 (글로벌미디어학부 21)</dd>
+                          </dl>
+                        </div>
+                      </li>
+                      <li>
+                        <iframe width="100%" style="border-color:#7FCDEB;"
+                        src="https://www.youtube.com/embed/6hsBzo7EBkA" title="YouTube video player" frameborder="0" allow="accelerometer;
+                        autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                        <div class="summit">
+                          <p class="h4">행운을 빌어요 - 페퍼톤스<br><span class="exp">(band cover by NULL)</span></p>
+                          <span class="exp">2021년 겨울 SUMMIT 정기공연 당시 공연한 곡입니다.
+                            곡을 들으시는 모두에게 행운만이 가득하길 바라는 마음에서 마지막 순서로 준비했습니다.</span>
+                            <dl class="intro">
+                              <dd>Vocal. 황태욱 (전자정보공학부 18)</dd>
+                              <dd>Guitar 1. 임가균 (컴퓨터학부 18)</dd>
+                              <dd>Guitar 2. 김주성 (전자정보공학부 19)</dd>
+                              <dd>Bass. 김현우 (전자정보공학부 19)</dd>
+                              <dd>Piano & Chorus. 장우영 (글로벌미디어학부 21)</dd>
+                              <dd>Drum. 김하빈 (글로벌미디어학부 21)</dd>
+                          </dl>
+                        </div>
+                      </li>
+                      <li>
+                        <iframe width="100%" style="border-color:#7FCDEB;"
+                        src="https://www.youtube.com/embed/HS7rm4K2TGA" title="YouTube video player" frameborder="0" allow="accelerometer;
+                        autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                        <div class="summit">
+                          <p class="h4">이웃에 방해가 되지 않는 선에서 - 브로콜리 너마저<br><span class="exp">(band cover by 김사장)</span></p>
+                          <span class="exp">2021년 겨울 SUMMIT 정기공연 당시 공연한 곡입니다.
+                            매력적인 베이스 솔로가 돋보이는 곡으로, 김사장의 첫 시작을 담당했습니다.</span>
+                            <dl class="intro">
+                              <dd>Vocal & A.G. 장우영(글로벌미디어학부 21)</dd>
+                              <dd>E.G. 김바울(글로벌미디어학부 21)</dd>
+                              <dd>Bass. 김현우(전자정보공학부 19)</dd>
+                              <dd>Piano. 김건창(글로벌미디어학부 21)</dd>
+                              <dd>Drum. 김하빈(글로벌미디어학부 21)</dd>
+                          </dl>
+                        </div>
+                      </li>
+                      <li>
+                        <iframe width="100%" style="border-color:#7FCDEB;"
+                        src="https://www.youtube.com/embed/Ne2TlmXhXOw" title="YouTube video player" frameborder="0" allow="accelerometer;
+                        autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                        <div class="summit">
+                          <p class="h4">기억을 걷는 시간 - 태연<br><span class="exp">(band cover by 김사장)</span></p>
+                          <span class="exp">2021년 겨울 SUMMIT 정기공연 당시 공연한 곡입니다.
+                            감미로운 피아노 반주가 익숙한 멜로디가 인상적인 곡입니다. (원곡 : NELL)
+                            </span>
+                            <dl class="intro">
+                              <dd>Vocal. 장우영(글로벌미디어학부 21)</dd>
+                              <dd>Guitar & Chorus. 김바울(글로벌미디어학부 21)</dd>
+                              <dd>Bass. 김현우(전자정보공학부 19)</dd>
+                              <dd>Piano. 김건창(글로벌미디어학부 21)</dd>
+                              <dd>Drum. 김하빈(글로벌미디어학부 21)</dd>
+                          </dl>
+                        </div>
+                      </li>
+                      <li>
+                        <iframe width="100%" style="border-color:#7FCDEB;"
+                        src="https://www.youtube.com/embed/c2im8wPJieQ" title="YouTube video player" frameborder="0" allow="accelerometer;
+                        autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                        <div class="summit">
+                          <p class="h4">고백 - 장범준<br><span class="exp">(band cover by 김사장)</span></p>
+                          <span class="exp">2021년 겨울 SUMMIT 정기공연 당시 공연한 곡입니다.
+                            귀여운 기타리스트 바울이의 보컬 도전 그리고 저의 짤막한 리코더 연주가 포인트입니다.</span>
+                            <dl class="intro">
+                              <dd>Chorus & Recorder. 장우영(글로벌미디어학부 21)</dd>
+                              <dd>Vocal & Guitar. 김바울(글로벌미디어학부 21)</dd>
+                              <dd>Bass. 김현우(전자정보공학부 19)</dd>
+                              <dd>Piano. 김건창(글로벌미디어학부 21)</dd>
+                              <dd>Drum. 김하빈(글로벌미디어학부 21)</dd>
+                          </dl>
+                        </div>
+                      </li>
+                      <li>
+                        <iframe width="100%" style="border-color:#7FCDEB;"
+                        src="https://www.youtube.com/embed/ZYNsmoDP004" title="YouTube video player" frameborder="0" allow="accelerometer;
+                        autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                        <div class="summit">
+                          <p class="h4">Must Have Love - SG워너비&브라운아이드걸스<br><span class="exp">(band cover by 김사장)</span></p>
+                          <span class="exp">2021년 겨울 SUMMIT 정기공연 당시 공연한 곡입니다.
+                            며칠 남지 않은 크리스마스를 앞두고 캐롤을 마지막 곡으로 장식하였습니다.</span>
+                            <dl class="intro">
+                              <dd>Vocal. 장우영 (글로벌미디어학부 21)</dd>
+                              <dd>Vocal & Guitar. 김바울 (글로벌미디어학부 21)</dd>
+                              <dd>Bass. 김현우 (전자정보공학부 19)</dd>
+                              <dd>Piano. 김건창 (글로벌미디어학부 21)</dd>
+                              <dd>Drum. 김하빈 (글로벌미디어학부 21)</dd>
+                          </dl>
+                        </div>
+                      </li>
+                    </ul>
+            	</section>
+            </section>
+            <br>
+            <section class="cnts cfixed" id="NELL">
+                <h2 class="sec-tit" style="color:#9AC9F3;">#NELL</h2>
+                <div class="comment">
+                  🎧 대한민국의 모던 록밴드, 김종완(보컬, 기타, 키보드), 이재경(기타, 키보드), 이정훈(베이스, 탬버린, 키보드, 코러스), 정재원(드럼, 코러스)<br><br>
+                  🎧 넬이라는 이름은 조디 포스터 주연의 영화 넬에서 따왔다고 한다. 극 중 주인공 넬은 인간사회와 단절된 생활을 하느라 아무도 이해하지 못하는 언어를 구사하는데, 그런 것처럼 자신들도 자신만의 음악으로 세상과 소통하겠다는 의미를 담았다고 한다.
+                </div>
+                <section class="gallery">
+                  <ul class="">
+                    <li style="border-color:#9AC9F3; background-color:#9AC9F3;">
+                      <a href="https://youtu.be/SFuv07DJs-k" title="믿어선 안될 말" target="_blank">
+                        <img class="" src="images/s-images/nell2.jpg">
+                        <span class="album">Speechless</span>
+                      </a>
+                    </li>
+                    <li style="border-color:#9AC9F3; background-color:#9AC9F3;">
+                      <a href="https://youtu.be/wqiV_OO_xIU" title="유령의 노래" target="_blank">
+                        <img class="" src="images/s-images/nell3.jpg">
+                        <span class="album">Let it rain</span>
+                      </a>
+                    </li>
+                    <li style="border-color:#9AC9F3; background-color:#9AC9F3;">
+                      <a href="https://youtu.be/LfVmHDnZnoE" title="Thank You" target="_blank">
+                        <img class="" src="images/s-images/nell4.jpg">
+                        <span class="album">Walk Through Me</span>
+                      </a>
+                    </li>
+                    <li style="border-color:#9AC9F3; background-color:#9AC9F3;">
+                      <a href="https://youtu.be/JMALr8rl8YA" title="오후와의 대화" target="_blank">
+                        <img class="" src="images/s-images/nell5.jpg">
+                        <span class="album">Healing Process</span>
+                      </a>
+                    </li>
+                    <li style="border-color:#9AC9F3; background-color:#9AC9F3;">
+                      <a href="https://youtu.be/zns6FHcyViI" title="1:03" target="_blank">
+                        <img class="" src="images/s-images/nell6.jpg">
+                        <span class="album">Separation Anxiety</span>
+                      </a>
+                    </li>
+                    <li style="border-color:#9AC9F3; background-color:#9AC9F3;">
+                      <a href="https://youtu.be/Du-1RVFpNDw" title="Hopeless Valentine" target="_blank">
+                        <img class="" src="images/s-images/nell7.jpg">
+                        <span class="album">Slip Away</span>
+                      </a>
+                    </li>
+                    <li style="border-color:#9AC9F3; background-color:#9AC9F3;">
+                      <a href="https://youtu.be/wiPTc9aLyZo" title="백야" target="_blank">
+                        <img class="" src="images/s-images/nell8.jpg">
+                        <span class="album">Holding onto Gravity</span>
+                      </a>
+                    </li>
+                    <li style="border-color:#9AC9F3; background-color:#9AC9F3;">
+                      <a href="https://youtu.be/fM5mBpvVdaU" title="HAVEN" target="_blank">
+                        <img class="" src="images/s-images/nell9.jpg">
+                        <span class="album">Escaping Gravity</span>
+                      </a>
+                    </li>
+                    <li style="border-color:#9AC9F3; background-color:#9AC9F3;">
+                      <a href="https://youtu.be/lm21oVUVLfU" title="Fantasy" target="_blank">
+                        <img class="" src="images/s-images/nell10.jpg">
+                        <span class="album">Newton's Apple</span>
+                      </a>
+                    </li>
+                    <li style="border-color:#9AC9F3; background-color:#9AC9F3;">
+                      <a href="https://youtu.be/aBNsNkUNuG8" title="습관적 아이러니" target="_blank">
+                        <img class="" src="images/s-images/nell11.jpg">
+                        <span class="album">C</span>
+                      </a>
+                    </li>
+                    <li style="border-color:#9AC9F3; background-color:#9AC9F3;">
+                      <a href="https://youtu.be/3ZsQjmwm1N0" title="A to Z" target="_blank">
+                        <img class="" src="images/s-images/nell12.png">
+                        <span class="album">COLORS IN BLACK</span>
+                      </a>
+                    </li>
+                    <li style="border-color:#9AC9F3; background-color:#9AC9F3;">
+                      <a href="https://youtu.be/2sXW_NbmsGU" title="유희" target="_blank">
+                        <img class="" src="images/s-images/nell13.png">
+                        <span class="album">Moments in Between</span>
+                      </a>
+                    </li>
+                    <li style="border-color:#9AC9F3; background-color:#9AC9F3;">
+                      <a href="https://youtu.be/I2aSGUctwVk" title="백색왜성" target="_blank">
+                        <img class="" src="images/s-images/nell14.jpg">
+                        <span class="album">Let's Take a Walk</span>
+                      </a>
+                    </li>
+                    <li style="border-color:#9AC9F3; background-color:#9AC9F3;">
+                      <a href="https://youtu.be/s59u0qncE8E" title="Part 2" target="_blank">
+                        <img class="" src="images/s-images/nell15.jpg">
+                        <span class="album">The Trace</span>
+                      </a>
+                    </li>
+                    <li style="border-color:#9AC9F3; background-color:#9AC9F3;">
+                      <a href="https://youtu.be/s59u0qncE8E" title="희망고문" target="_blank">
+                        <img class="" src="images/s-images/nell16.jpg">
+                        <span class="album">행복했으면 좋겠어</span>
+                      </a>
+                    </li>
+                    <li style="border-color:#9AC9F3; background-color:#9AC9F3;">
+                      <a href="https://youtu.be/s59u0qncE8E" title="Glow in the dark" target="_blank">
+                        <img class="" src="images/s-images/nell17.jpg">
+                        <span class="album">Glow in the dark</span>
+                      </a>
+                    </li>
+                    <li style="border-color:#9AC9F3; background-color:#9AC9F3;">
+                      <a href="https://youtu.be/mG4Ccpl7Z_8" title="믿어선 안될 말" target="_blank">
+                        <img class="" src="images/s-images/nell18.jpg">
+                        <span class="album">Christmas In NELL's ROOM</span>
+                      </a>
+                    </li>
+                    <li style="border-color:#9AC9F3; background-color:#9AC9F3;">
+                      <a href="https://youtu.be/OdUEi40pNQo" title="청춘연가" target="_blank">
+                        <img class="" src="images/s-images/nell19.jpg">
+                        <span class="album">청춘연가</span>
+                      </a>
+                    </li>
+                    <li style="border-color:#9AC9F3; background-color:#9AC9F3;">
+                      <a href="https://youtu.be/rUwVCFBk61s" title="그리워하려고 해" target="_blank">
+                        <img class="" src="images/s-images/nell20.jpg">
+                        <span class="album">그리워하려고 해</span>
+                      </a>
+                    </li>
+                    <li style="border-color:#9AC9F3; background-color:#9AC9F3;">
+                      <a href="https://youtu.be/RKtz96EnMF4" title="부서진" target="_blank">
+                        <img class="" src="images/s-images/nell21.jpg">
+                        <span class="album">부서진</span>
+                      </a>
+                    </li>
+                    <li style="border-color:#9AC9F3; background-color:#9AC9F3;">
+                      <a href="https://youtu.be/4quBThKL7-8" title="오늘은" target="_blank">
+                        <img class="" src="images/s-images/nell22.jpg">
+                        <span class="album">NELL X GROOVYROOM</span>
+                      </a>
+                    </li>
+                    <li style="border-color:#9AC9F3; background-color:#9AC9F3;">
+                      <a href="https://youtu.be/L8hJ6yv7ZrE" title="Northern Lights" target="_blank">
+                        <img class="" src="images/s-images/nell23.jpg">
+                        <span class="album">Northern Lights</span>
+                      </a>
+                    </li>
+                </ul>
+            	</section>
+            </section>
+            <br>
+            <section class="cnts cfixed" id="PEPPERTONES">
+               <h2 class="sec-tit" style="color:#BFC3FD;">#PEPPERTONES</h2>
+               <div class="comment">
+                🎧 신재평과 이장원으로 이루어진 남성 2인조 밴드이자 프로듀싱 유닛.<br><br>
+                🎧 PEPPERTONES는 무료함에 지친 두 친구의 작당으로 시작되었습니다. 2003년경부터 지금까지 인디씬을 중심으로 느리지만 꾸준하게 활동하며 진보하고 있습니다. 우리는 밝고 긍정적인 음악을 지향하는 프로듀싱 유니트입니다.<br><br>
+                🎧 우울증을 위한 뉴-테라피 2인조 밴드라는 장난스러운 모토로 시작하여 어느덧 여러 사람들과 함께하고 영향 받으며 성장해 왔습니다. 우리가 만들어가는 밝고 긍정적인 음악들의 가치를 믿고 있습니다.
+              </div>
+               <section class="gallery">
+                    <ul class="">
+                      <li style="border-color:#BFC3FD; background-color:#BFC3FD;">
+                        <a href="https://youtu.be/R2vWQpJqUBg" title="21st century magic" target="_blank">
+                          <img class="" src="images/s-images/pepper1.jpg">
+                          <span class="album">A PREVIEW</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#BFC3FD; background-color:#BFC3FD;">
+                        <a href="https://youtu.be/6Z5a6cJU95M" title="Fake Traveler" target="_blank">
+                          <img class="" src="images/s-images/pepper2.jpg">
+                          <span class="album">1집 COLORFUL EXPRESS</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#BFC3FD; background-color:#BFC3FD;">
+                        <a href="https://youtu.be/YF1svlPVHdY" title="NEW HIPPIE GENERATION" target="_blank">
+                          <img class="" src="images/s-images/pepper3.jpg">
+                          <span class="album">2집 NEW STANDARD</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#BFC3FD; background-color:#BFC3FD;">
+                        <a href="https://youtu.be/8nbRkG4an2Y" title="겨울의 사업가" target="_blank">
+                          <img class="" src="images/s-images/pepper4.jpg">
+                          <span class="album">3집 SOUNDS GOOD!</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#BFC3FD; background-color:#BFC3FD;">
+                        <a href="https://youtu.be/loViiBWhQ8w" title="Fine (long ver.)" target="_blank">
+                          <img class="" src="images/s-images/pepper5.jpg">
+                          <span class="album">4집 beginner's luck</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#BFC3FD; background-color:#BFC3FD;">
+                        <a href="https://youtu.be/UjfKsCu41Co" title="계절의 끝에서" target="_blank">
+                          <img class="" src="images/s-images/pepper6.jpg">
+                          <span class="album">open run</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#BFC3FD; background-color:#BFC3FD;">
+                        <a href="https://youtu.be/5haB-uCM7Bo" title="Thank You" target="_blank">
+                          <img class="" src="images/s-images/pepper7.jpg">
+                          <span class="album">Thank you</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#BFC3FD; background-color:#BFC3FD;">
+                        <a href="https://youtu.be/idI0oRQfesc" title="FAST" target="_blank">
+                          <img class="" src="images/s-images/pepper8.jpg">
+                          <span class="album">5집 HIGH-FIVE</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#BFC3FD; background-color:#BFC3FD;">
+                        <a href="https://youtu.be/W1Lhi3eTnHE" title="Everything is OK" target="_blank">
+                          <img class="" src="images/s-images/pepper9.jpg">
+                          <span class="album">2014-2015 TWO LIVES</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#BFC3FD; background-color:#BFC3FD;">
+                        <a href="https://youtu.be/8OAqLk_F2ow" title="캠프파이어" target="_blank">
+                          <img class="" src="images/s-images/pepper10.jpg">
+                          <span class="album">캠프파이어</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#BFC3FD; background-color:#BFC3FD;">
+                        <a href="https://youtu.be/ban-n5B7S5U" title="긴 여행의 끝" target="_blank">
+                          <img class="" src="images/s-images/pepper11.jpg">
+                          <span class="album">6집 long way</span>
+                        </a>
+                      </li>
+                    </ul>
+            	</section>
+            </section>
+            <br>
+            <section class="cnts cfixed" id="THORNAPPLE">
+                <h2 class="sec-tit" style="color:#CCC0F0;">#THORNAPPLE</h2>
+                <div class="comment">
+                  🎧 THORNAPPLE. 쏜애플. 2009년 결성된 대한민국의 4인조 인디밴드.<br><br>
+                  🎧 풀밴드 편성 기준으로, 2009년 12월 24일에 클럽 바다비에서 첫 공연을 가지며 데뷔하였다.
+                  2010년 7월 첫번째 정규 앨범 '난 자꾸 말을 더듬고 잠드는 법도 잊었네' 를 발매하였으며,
+                  앨범 발매 직후 윤성현과 심재현의 군 입대로 2년여 간의 공백기를 가지다 2012년 12월에 복귀,
+                  2013년 6월 해피로봇 레코드와 전속 계약을 맺고 1년 후 2집 '이상기후'를 발매하였고
+                  2016년에는 EP앨범 '서울병', 2019년에는 3집 '계몽'을 발매하며 현재 인디씬에서 티켓파워가 가장 강력한 밴드 중 하나이다.
+                </div>
+                <section class="gallery">
+                    <ul class="">
+                      <li style="border-color:#CCC0F0; background-color:#CCC0F0;">
+                        <a href="https://youtu.be/qSsO9CIUchA" title="아가미" target="_blank">
+                          <img class="" src="images/s-images/thorn1.jpg">
+                          <span class="album">1집 난 자꾸 말을 더듬고 잠드는 법도 잊었네</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#CCC0F0; background-color:#CCC0F0;">
+                        <a href="https://youtu.be/HvWWnE3MK3o" title="살아있는 너의 밤" target="_blank">
+                          <img class="" src="images/s-images/thorn2.jpg">
+                          <span class="album">2집 이상기후</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#CCC0F0; background-color:#CCC0F0;">
+                        <a href="https://youtu.be/zmCwK4aC4U0" title="로마네스크" target="_blank">
+                          <img class="" src="images/s-images/thorn3.jpg">
+                          <span class="album">3집 계몽</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#CCC0F0; background-color:#CCC0F0;">
+                        <a href="https://youtu.be/dY91_KvxuRo" title="서울" target="_blank">
+                          <img class="" src="images/s-images/thorn4.jpg">
+                          <span class="album">서울병</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#CCC0F0; background-color:#CCC0F0;">
+                        <a href="https://youtu.be/tlERiiyCntc" title="행복한 나를" target="_blank">
+                          <img class="" src="images/s-images/thorn5.jpg">
+                          <span class="album">행복한 나를</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#CCC0F0; background-color:#CCC0F0;">
+                        <a href="https://youtu.be/mKOOH3_xXj0" title="우리의 밤은 당신의 낮보다 아름답다" target="_blank">
+                          <img class="" src="images/s-images/thorn6.jpg">
+                          <span class="album">MUST 밴드의 시대</span>
+                        </a>
+                      </li>
+                    </ul>
+            	</section>
+            </section>
+            <br>
+            <section class="cnts cfixed" id="YOUNHA">
+                <h2 class="sec-tit" style="color:#DDBFE2;">#YOUNHA</h2>
+                <div class="comment">
+                  🎧 <span style="font-style: italic; text-decoration: underline;">황선업 평론가, SUPERSONIC</span><br><br>
+                  생각해보면 이상한 현상이라 할 만 했다. 음원 사이트에서는 50위안에 겨우 랭크되고 있는 앨범의 오프라인 초도물량이 일부 레코드샵에서는 품귀현상을 빚고 있다니. 이처럼 윤하에게는 '저물어가는 아날로그 시대의 맥을 잇는 아티스트'라는 크나큰 상징성이 존재했다. 멜로디나 편곡이 허술해도 이를 보컬 자체로 끌어올릴 수 있는 몇 안 되는, 음악에의 순수의지를 한 아름 안은 그녀의 등장은 온라인과 기획형 아이돌에 정을 붙이지 못하는 이들에게 있어 눈부시게 빛나는 동시대적 대안임에 분명했다.
+                  <br><br>
+                  🎧 <span style="font-style: italic; text-decoration: underline;">김형석, 복면가왕에 출연한 윤하에게</span><br><br>
+                  노래를 하는 여자 가수 지망생들에게 꼭 하나 해주고 싶은 얘기는, '윤하를 공부해라'. 발성, 호흡, 음정, 안정감 이 모든 것들이 최고인 보컬입니다.
+                </div>
+                <section class="gallery">
+                    <ul class="">
+                      <li style="border-color: #DDBFE2; background-color:#DDBFE2;">
+                        <a href="https://youtu.be/tFs4XcSZ9bc" title="Audition" target="_blank">
+                          <img class="" src="images/s-images/younha1.jpg">
+                          <span class="album">Audition (Time2Rock)</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#DDBFE2; background-color:#DDBFE2;">
+                        <a href="https://youtu.be/aRmtyF2sjJU" title="비밀번호 486" target="_blank">
+                          <img class="" src="images/s-images/younha2.jpg">
+                          <span class="album">1집 고백하기 좋은 날</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#DDBFE2; background-color:#DDBFE2;">
+                        <a href="https://youtu.be/aRmtyF2sjJU" title="추억은 아름다운 기억" target="_blank">
+                          <img class="" src="images/s-images/younha3.jpg">
+                          <span class="album">1.5집 혜성</span>
+                        </a>
+                      </li>                      
+                      <li style="border-color:#DDBFE2; background-color:#DDBFE2;">
+                        <a href="https://youtu.be/n5ZzTRFx6qI" title="Strawberry Days" target="_blank">
+                          <img class="" src="images/s-images/younha4.jpg">
+                          <span class="album">2집 Someday</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#DDBFE2; background-color:#DDBFE2;">
+                        <a href="https://youtu.be/siOF8eFS8uw" title="사랑하다" target="_blank">
+                          <img class="" src="images/s-images/younha5.jpg">
+                          <span class="album">3집 A Peace Love & Ice Cream</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#DDBFE2; background-color:#DDBFE2;">
+                        <a href="https://youtu.be/vx8zBqLr4Kw" title="스물두 번째 길" target="_blank">
+                          <img class="" src="images/s-images/younha6.jpg">
+                          <span class="album">3집 B Growing Season</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#DDBFE2; background-color:#DDBFE2;">
+                        <a href="https://youtu.be/eCtLWQuHnPE" title="내 남자친구를 부탁해" target="_blank">
+                          <img class="" src="images/s-images/younha7.jpg">
+                          <span class="album">Lost In Love</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#DDBFE2; background-color:#DDBFE2;">
+                        <a href="https://youtu.be/J8MYPzKhgoc" title="소나기" target="_blank">
+                          <img class="" src="images/s-images/younha8.jpg">
+                          <span class="album">4집 Supersonic</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#DDBFE2; background-color:#DDBFE2;">
+                        <a href="https://youtu.be/J8MYPzKhgoc" title="봄은 있었다" target="_blank">
+                          <img class="" src="images/s-images/younha9.jpg">
+                          <span class="album">Just Listen</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#DDBFE2; background-color:#DDBFE2;">
+                        <a href="https://youtu.be/16pfpJUqu4A" title="시간을 믿었어" target="_blank">
+                          <img class="" src="images/s-images/younha10.jpg">
+                          <span class="album">Subsonic</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#DDBFE2; background-color:#DDBFE2;">
+                        <a href="https://youtu.be/ImnohMZZJcc" title="답을 찾지 못한 날" target="_blank">
+                          <img class="" src="images/s-images/younha11.jpg">
+                          <span class="album">5집 RescuE</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#DDBFE2; background-color:#DDBFE2;">
+                        <a href="https://youtu.be/kgSkjYQay_o" title="느린 우체통" target="_blank">
+                          <img class="" src="images/s-images/younha12.jpg">
+                          <span class="album">느린 우체통</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#DDBFE2; background-color:#DDBFE2;">
+                        <a href="https://youtu.be/2U-lI0SKfms" title="Rainy Night" target="_blank">
+                          <img class="" src="images/s-images/younha13.jpg">
+                          <span class="album">STABLE MINDSET</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#DDBFE2; background-color:#DDBFE2;">
+                        <a href="https://youtu.be/0BJ3D9eV5ac" title="26" target="_blank">
+                          <img class="" src="images/s-images/younha14.jpg">
+                          <span class="album">UNSTABLE MINDSET</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#DDBFE2; background-color:#DDBFE2;">
+                        <a href="Truly" title="Truly" target="_blank">
+                          <img class="" src="images/s-images/younha15.jpg">
+                          <span class="album">6집 END THEORY</span>
+                        </a>
+                      </li>
+                      <li style="border-color:#DDBFE2; background-color:#DDBFE2;">
+                        <a href="https://youtu.be/BBdC1rl5sKY" title="사건의 지평선" target="_blank">
+                          <img class="" src="images/s-images/younha16.jpg">
+                          <span class="album">END THEORY : Final Edition</span>
+                        </a>
+                      </li>
+                    </ul>
+            	</section>
+            </section>
+            <br>
+            <section id="contact" class="guest-section">
+                <h2 class="sec-tit" style="color:#FBBBC7;">GUEST ZONE</h2>
+                <div class="comment">
+                  🎀 당신이 제게 추천하고 싶은 노래가 있나요? 여기에 남겨주세요!
+                </div>
+                    <div class="formbox">
+                        <div class="name">
+                          <label for="name" class="blind">Name</label>
+                          <input type="text" id="name" placeholder="NAME">
+                        </div>
+                        <div class="pw">
+                          <label for="pw" class="blind">Password</label>
+                          <input type="password" id="pw" placeholder="PASSWORD">
+                        </div>
+                        <div class="singer">
+                          <label for="singer" class="blind">Singer</label>
+                          <input type="text" id="name" placeholder="SINGER">
+                        </div>
+                        <div class="message">
+                          <label for="message" class="blind">Title</label>
+                          <textarea name="message" id="message" placeholder="TITLE"></textarea>
+                        </div>
+                        <div class="send-btn">
+                            <div class="send-btn-b" style="margin: 30px auto" onclick="saveWriting()">
+                            인생 노래 추천하기!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box_list"></div>
+                
+        	</section>
+
+		</section>
+
+
+        <footer class="footer">
+            <p class="copyright">copyright © 2022 All rights reserved by 장우영</p>
+        </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "foryxxng",
+  "version": "1.0.0",
+  "description": "2022 1학기 웹프로그래밍및실습(나) 기말 프로젝트 과제_20211608 장우영",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
